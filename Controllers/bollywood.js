@@ -1,0 +1,24 @@
+const bollywood = (req,res)=>{
+    res.send(
+        [
+          {"id":1,"img_url":"https://i.pinimg.com/474x/73/88/2b/73882bec5a70c7617b502f99a3429909.jpg","h3":"K.G.F: Chapter 1","span":"Rocky, a young man, seeks power and wealth in order to fulfil a promise to his dying mother. His quest takes him to Mumbai, where he gets involved with the notorious gold mafia.","p":"Bollywood / 21 December 2018"},
+          {"id":2,"img_url":"https://i.pinimg.com/474x/86/2d/97/862d973886fa8f816066485df506eee2.jpg","h3":"Pushpa: The Rise","span":"A labourer named Pushpa makes enemies as he rises in the world of red sandalwood smuggling. However, violence erupts when the police attempt to bring down his illegal business.","p":"Bollywood /  17 December 2021"},
+          {"id":3,"img_url":"https://i.pinimg.com/474x/21/a2/4b/21a24b99327be8cde9135c1b3e5c2b01.jpg","h3":"3 Idiots","span":"In college, Farhan and Raju form a great bond with Rancho due to his refreshing outlook. Years later, a bet gives them a chance to look for their long-lost friend whose existence seems rather elusive.","p":"Bollywood /  25 December 2009 "},
+          {"id":4,"img_url":"https://i.pinimg.com/474x/54/f4/87/54f4877ebf01196480a1fcc5b630ed05.jpg","h3":"M.S. Dhoni: The Untold Story","span":"M S Dhoni, a boy from Ranchi, aspires to play cricket for India. Though he initially tries to please his father by working for the Indian Railways, he ultimately decides to chase his dreams.","p":"Bollywood /  30 September 2016"},
+          {"id":5,"img_url":"https://i.pinimg.com/474x/ba/88/f3/ba88f38579bccca992a4a7ff26fc96cb.jpg","h3":"Vikram Vedha","span":"Vikram Vedha is a 2022 Indian Hindi-language neo-noir action thriller film written-directed by Pushkar–Gayathri, based on their 2017 Tamil film of the same name and also inspired by the Indian folktale Baital Pachisi.","p":"Bollywood /  30 September 2022 "},
+          {"id":6,"img_url":"https://i.pinimg.com/474x/b2/4b/fa/b24bfa30704cacbb751059d91cb45714.jpg","h3":"Kuch Kuch Hota Hai","span":"After reading the letter her mother had written for her before she died, Anjali decides to bring together her widowed father, Rahul, with his true love who is also named Anjali.","p":"Bollywood /   16 October 1998"},
+          {"id":7,"img_url":"https://i.pinimg.com/474x/5c/67/28/5c6728737a7d97716cecdf40daa5b96b.jpg","h3":"Zindagi Na Milegi Dobara","span":"Friends Kabir, Imran and Arjun take a vacation in Spain before Kabir's marriage. The trip turns into an opportunity to mend fences, heal wounds, fall in love with life and combat their worst fears","p":"Bollywood /  15 July 2011"},
+          {"id":8,"img_url":"https://i.pinimg.com/474x/eb/d1/bb/ebd1bb2b98ae7afee89221fcfe5a84e1.jpg","h3":"Drishyam","span":"When the disappearance of a policewoman's son threatens to ruin Vijay's family, he leaves no stone unturned in order to shield his family.","p":"Bollywood /   31 July 2015"},
+          {"id":9,"img_url":"https://i.pinimg.com/474x/fe/8e/cc/fe8ecc7fb2eabe7638831377b9ab5e10.jpg","h3":"Dangal","span":"Mahavir Singh Phogat, a former wrestler, decides to fulfil his dream of winning a gold medal for his country by training his daughters for the Commonwealth Games despite the existing social stigmas","p":"Bollywood /  23 December 2016"},
+          {"id":10,"img_url":"https://i.pinimg.com/474x/17/47/50/174750d3772878a747f1a3812376c8b4.jpg","h3":"PK","span":"An innocent alien lands on Earth but loses his communication device. He meets Jaggu, a heartbroken reporter, and tries to find his device. With time, he raises many thought-provoking questions.","p":"Bollywood /  19 December 2014"},
+          {"id":11,"img_url":"https://i.pinimg.com/474x/5b/b6/7e/5bb67e0c048aafd6bf2b921113c9d6b7.jpg","h3":"Taare Zameen Par","span":"Ishaan is criticised by his parents for his poor academic performance and is sent away to a boarding school. Ram, an art teacher, however, realises he has dyslexia and helps him uncover his potential.","p":"Bollywood /  21 December 2007"},
+          {"id":12,"img_url":"https://i.pinimg.com/474x/53/85/6d/53856dcb2db97bfe1c2cf0cdf7085a8f.jpg","h3":"Vikram-III","span":"rem ipsum dolor sit, amet consectetur adipisicing elit.","p":"Bollywood /  Comming soon"},
+      
+          {"id":13,"article-content":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ipsa quisquam assumenda debitis provident eum amet maxime neque necessitatibus tempora molestias quibusdam quod, quae natus dolorem mollitia aspernatur adipisci deleniti ipsum molestiae veniam minima. Debitis voluptates, minima culpa, tempore eaque doloremque veritatis architecto enim error et sint. Natus id ratione reiciendis odio, voluptas nesciunt repellat sapiente architecto magni harum rem."}
+      
+            ]
+        
+    )
+}
+
+module.exports.bollywoodData = bollywood;
