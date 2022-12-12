@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 require('../DB/connection');
 const User = require('../model/userSchema');
 
+const authenticate = require("../middleware/authenticate")
+
 router.get("/",(req,res)=>{
     res.send("You are connected from router.js")
 })
@@ -13,8 +15,10 @@ router.get("/",(req,res)=>{
 router.post("/signup", async(req,res)=>{
     // console.log(req.body);
     // res.json({message : req.body})
-    res.send("SigUp")
+    // res.send("SignUp")
 
+
+    console.log(req.body);
 
     const {name, email, phone, password, cpassword} = req.body;
 
@@ -35,27 +39,13 @@ router.post("/signup", async(req,res)=>{
             const user = new User({name, email, phone, password, cpassword});
 
             await user.save();
-    
+			
+			
+
             console.log(user);
             res.status(201).json({ message : "User registered successfully"});
            
         }
-
-
-
-        // .then((userExist) => {
-        //     if(userExist){
-        //         return res.status(422).json({ error : "Email already exist"});
-
-        //     }
-
-        //     const user = new User({name, email, phone, password, cpassword});
-
-        //     user.save().then(() => {
-        //         return res.status(201).json({ message : "User registered successfully"});
-        //     }).catch((err) => res.status(500).json({ error : "Failed to registered"}));
-            
-        // })
     }
     catch(err) {
         console.log(err);
@@ -63,13 +53,16 @@ router.post("/signup", async(req,res)=>{
 
 })
 
-router.post('/signin', async (req,res) => {
+
+
+router.post("/signin", async (req,res) => {
     // console.log(req.body);
     // res.json({message : "Success"})
-    res.send("SignIn")
+    // res.send("SignIn")
 
 
    try{
+        console.log(req.body);
         const {email, password} = req.body;
 
         if( !email || !password ){
@@ -80,6 +73,8 @@ router.post('/signin', async (req,res) => {
         
         if(userLogin){
             const isMatch = await bcrypt.compare(password, userLogin.password);
+
+			console.log(isMatch);
 
             const token = await userLogin.generateAuthToken();
             console.log(token);
@@ -92,7 +87,9 @@ router.post('/signin', async (req,res) => {
             if(!isMatch){
                 res.status(400).json({error: "Invalid Credentials"});
             }else{
+                // res.redirect("/");
                 res.json({message : "User signin successfully"});
+                // if()
             }
         }else{
             res.status(400).json({error: "Invalid Credentials"});
@@ -104,36 +101,42 @@ router.post('/signin', async (req,res) => {
    }
 })
 
+// function loggedIn(req,res,next){
+//     const result = req.isAuthenticated()
+//     console.log(result);
+//     if(result){
+//         next();
+//     }else{
+//         res.redirect("/signin")
+//     }
+// }
+
+// router.get("/admin", loggedIn, (req,res) => {
+//     try{
+//         console.log("admin page");
+//         res.send("Hiiiiiiiii Admin");
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// } )
+
+
+router.get("/signin/admin", authenticate ,(req,res)=>{
+    // console.log(req.body);
+    // res.send(req.parentUser)
+    try{
+        res.send("admin is everything ok")
+    }
+    catch(err){
+        console.log(err);
+    }
+
+});
+
+
+
 module.exports = router;
 
 
 
-
-// const router = require("express").Router();
-// const { User, validate } = require("../model/userSchema");
-// const bcrypt = require("bcrypt");
-
-// router.post("/", async (req, res) => {
-// 	try {
-// 		const { error } = validate(req.body);
-// 		console.log(error);
-// 		if (error)
-// 			return res.status(400).send({ message: error.details[0].message });
-
-// 		const user = await User.findOne({ email: req.body.email });
-// 		if (user)
-// 			return res
-// 				.status(409)
-// 				.send({ message: "User with given email already Exist!" });
-
-// 		const salt = await bcrypt.genSalt(Number(12));
-// 		const hashPassword = await bcrypt.hash(req.body.password, salt);
-
-// 		await new User({ ...req.body, password: hashPassword }).save();
-// 		res.status(201).send({ message: "User created successfully" });
-// 	} catch (error) {
-// 		res.status(500).send({ message: "Internal Server Error" });
-// 	}
-// });
-
-// module.exports = router;
