@@ -8,6 +8,7 @@ const User = require('./model/userSchema')
 
 const router = require('./routerr/auth')
 
+
 const cookieParser = require('cookie-parser');
 
 app.use(express.json()) // application understands the data(in the form of json which app doesnot understand)
@@ -15,7 +16,7 @@ app.use(express.json()) // application understands the data(in the form of json 
 app.use(cors());
 
 
-app.use("/home", data1)
+app.use("/data", data1)
 console.log(data1);
 
 
