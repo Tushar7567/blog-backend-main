@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 require('dotenv').config({path:"./config.env"})
 
 
-require('./DB/connection')
+// require('./DB/connection')
 const User = require('./model/userSchema')
 
 const router = require('./routerr/auth')
