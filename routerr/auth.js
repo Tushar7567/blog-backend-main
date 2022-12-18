@@ -43,7 +43,7 @@ router.post("/signup", async(req,res)=>{
 			
 
             console.log(user);
-            res.status(201).json({ message : "User registered successfully"});
+            res.status(200).json({ message : "User registered successfully"});
            
         }
     }

@@ -1,13 +1,13 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// require('dotenv').config({path:"./config.env"})
+require('dotenv').config({path:"./config.env"})
 
-// const Db = process.env.URI
+const Db = process.env.URI
 
-// mongoose.connect(Db).then(() => {
-//     console.log('Database connection successful');
-// }).catch((err) => {
-//     console.log('Database failed to connect');
-// })
+mongoose.connect(Db).then(() => {
+    console.log('Database connection successful');
+}).catch((err) => {
+    console.log('Database failed to connect');
+})
 
 
