@@ -101,6 +101,12 @@ router.post("/signin", async (req,res) => {
    }
 })
 
+router.get("/logout",(req,res)=>{
+    console.log("Hello logout page");
+    res.clearCookie('jwtoken', {path: "/"});
+    res.status(200).send("User logout")
+})
+
 // function loggedIn(req,res,next){
 //     const result = req.isAuthenticated()
 //     console.log(result);

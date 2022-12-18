@@ -15,6 +15,8 @@ app.use(express.json()) // application understands the data(in the form of json 
 // app.use(express.urlencoded());
 app.use(cors());
 
+app.use(cookieParser());
+
 
 app.use("/data", data1)
 console.log(data1);
@@ -27,23 +29,6 @@ app.use("/", router);
 //     console.log("Admin page");
 //     res.send("Welcome to Admins page",req.parentUser);
 // })
-
-app.use(cookieParser());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // app.listen(5000,()=>{
