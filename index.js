@@ -3,13 +3,17 @@ const app = express();
 const data1 = require("./Routes/bollywood")
 const cors = require("cors")
 
-require('./DB/connection')
+// require('./DB/connection')
 const User = require('./model/userSchema')
 
 const router = require('./routerr/auth')
-
-
 const cookieParser = require('cookie-parser');
+
+
+const mongoose = require('mongoose');
+require('dotenv').config({path:"./config.env"})
+
+
 
 app.use(express.json()) // application understands the data(in the form of json which app doesnot understand)
 // app.use(express.urlencoded());
@@ -35,6 +39,19 @@ app.use("/", router);
 //     console.log("server running");
 // })
 
-app.listen(process.env.PORT||8080,()=>{
-    console.log("server running");
+
+
+const Db = process.env.URI
+
+mongoose.connect(Db).then(() => {
+    console.log('Database connection successful');
+    app.listen(process.env.PORT||8080,()=>{
+        console.log("server running");
+    })
+}).catch((err) => {
+    console.log('Database failed to connect');
 })
+
+// app.listen(process.env.PORT||8080,()=>{
+//     console.log("server running");
+// })
