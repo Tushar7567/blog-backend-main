@@ -86,11 +86,13 @@ router.post("/signin", async (req,res) => {
 
             if(!isMatch){
                 res.status(400).json({error: "Invalid Credentials"});
-            }else{
-                // res.redirect("/");
-                res.json({message : "User signin successfully"});
-                // if()
             }
+                // res.redirect("/");
+                // res.json()
+                // res.send(req.cookies)
+            res.status(200).json({message : "User signin successfully"});
+                // if()
+            
         }else{
             res.status(400).json({error: "Invalid Credentials"});
         }
@@ -107,29 +109,9 @@ router.get("/logout",(req,res)=>{
     res.status(200).send("User logout")
 })
 
-// function loggedIn(req,res,next){
-//     const result = req.isAuthenticated()
-//     console.log(result);
-//     if(result){
-//         next();
-//     }else{
-//         res.redirect("/signin")
-//     }
-// }
-
-// router.get("/admin", loggedIn, (req,res) => {
-//     try{
-//         console.log("admin page");
-//         res.send("Hiiiiiiiii Admin");
-//     }
-//     catch(err){
-//         console.log(err);
-//     }
-// } )
-
 
 router.get("/signin/admin", authenticate ,(req,res)=>{
-    // console.log(req.body);
+    console.log(req.body);
     // res.send(req.parentUser)
     try{
         res.send("admin is everything ok")

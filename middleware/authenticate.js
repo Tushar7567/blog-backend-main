@@ -45,6 +45,8 @@ const authenticate = async (req,res,next) =>{
             console.log("next() called");
             // res.redirect("/")
             next();
+        }else{
+            throw new Error("User not authorized");
         }
 
        

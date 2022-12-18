@@ -16,7 +16,6 @@ app.use(express.json()) // application understands the data(in the form of json 
 const corsOptions = {
     origin: true,
    //update: or "origin: true," if you don't wanna add a specific one
-    credentials: true,
 };
 
 app.use(cors(corsOptions));
